@@ -1,0 +1,80 @@
+<%- include('../layouts/header', { title: 'Camiseta List' }); -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="alert alert-success text-center">Camiseta List</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Talla</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Disponible</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Fecha de Lanzamiento</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% camisetas.map(camiseta => { %>
+                        <tr>
+                            <td scope="row">
+                                <%= camiseta.id %>
+                            </td>
+                            <td>
+                                <%= camiseta.color %>
+                            </td>
+                            <td>
+                                <%= camiseta.talla %>
+                            </td>
+                            <td>
+                                <%= camiseta.tipo %>
+                            </td>
+                            <td>
+                                <%= camiseta.marca %>
+                            </td>
+                            <td>
+                                <%= camiseta.precio %>
+                            </td>
+                            <td>
+                                <%= camiseta.disponible ? 'Sí' : 'No' %>
+                            </td>
+                            <td>
+                                <%= camiseta.stock %>
+                            </td>
+                            <td>
+                                <%= camiseta.fechaLanzamiento %>
+                            </td>
+                            <td>
+                                <form action="/camisetas/delete/<%= camiseta.id %>" method="post"
+                                    onsubmit="return confirm('Are you sure you want to delete this camiseta?');">
+                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-grid">
+            <a href="/camisetas/create" class="btn btn-outline-secondary">
+                Create a new camiseta
+            </a>
+        </div>
+    </div>
+</div>
+
+<%- include('../layouts/footer'); -%>

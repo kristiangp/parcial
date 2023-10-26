@@ -1,0 +1,71 @@
+<%- include('../layouts/header', { title: 'Create Camiseta' }); -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="alert alert-success text-center">Create a new camiseta</h1>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <form action="/camisetas" method="post" class="row">
+            <div class="col-6">
+                <label for="color" class="form-label">Color</label>
+                <input type="text" name="color" id="color" class="form-control" required>
+            </div>
+            <div class="col-6">
+                <label for="talla" class="form-label">Talla</label>
+                <select name="talla" id="talla" class="form-select" required>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="tipo" class="form-label">Tipo</label>
+                <select name="tipo" id="tipo" class="form-select" required>
+                    <option value="polo">Polo</option>
+                    <option value="manga corta">Manga Corta</option>
+                    <option value="manga larga">Manga Larga</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" name="marca" id="marca" class="form-control" required>
+            </div>
+            <div class="col-6">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" name="precio" id="precio" class="form-control" required>
+            </div>
+            <div class="col-6">
+                <label for="disponible" class="form-label">Disponible</label>
+                <select name="disponible" id="disponible" class="form-select" required>
+                    <option value="true">Sí</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" name="stock" id="stock" class="form-control" required>
+            </div>
+            <div class="col-6">
+                <label for="fechaLanzamiento" class="form-label">Fecha de Lanzamiento</label>
+                <input type="date" name="fechaLanzamiento" id="fechaLanzamiento" class="form-control" required>
+            </div>
+            <div class="col-12 d-grid mt-4">
+                <button type="submit" class="btn btn-outline-success">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 d-grid mt-4">
+        <a href="/camisetas" class="btn btn-outline-secondary">Back to camisetas list</a>
+    </div>
+</div>
+
+<%- include('../layouts/footer'); -%>
